@@ -133,3 +133,19 @@ button:hover {
   border-radius: 1.5rem;
   padding: 0 2rem;
 }
+
+/* HISTORY */
+.history {
+  margin-top: 1rem;
+}
+.history-list {
+  margin-top: 1rem;
+  max-height: 300px;
+  overflow: auto;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: #111 #444;
+}

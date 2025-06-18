@@ -59,6 +59,16 @@ const picker = {
     const winIndex = Math.floor(Math.random() * options.length);
     const winValue = options[winIndex];
     this.result.textContent = winValue;
+    historyList.addRecord(winValue);
   },
 };
 picker.init();
+
+const historyList = {
+  list: document.getElementById('history-list'),
+  addRecord(value) {
+    const $li = document.createElement('li');
+    $li.textContent = value;
+    this.list.prepend($li);
+  },
+};
