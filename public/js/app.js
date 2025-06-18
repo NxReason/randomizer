@@ -1,13 +1,25 @@
 const optionsList = {
   init() {
+    this.setId = document.querySelector('.options')?.dataset['setId'];
+
+    console.log(this.setId);
+
     this.showFormBtn.addEventListener('click', () => {
       this.toggleTitle();
     });
     this.form.addEventListener('submit', async e => {
       e.preventDefault();
       const nameInput = document.getElementById('new-set-name');
-      const res = await API.saveSet({ name: nameInput.value });
+      const name = nameInput.value;
+
+      let res;
+      if (this.setId) {
+        res = await API.updateSet(this.setId, { name });
+      } else {
+        res = await API.saveSet({ name });
+      }
       if (res?.set) {
+        this.setId = res.set.id;
         this.renameSet(res.set.name);
       }
       this.toggleTitle();
@@ -18,6 +30,7 @@ const optionsList = {
   title: document.getElementById('options-title'),
   showFormBtn: document.getElementById('save-btn'),
   form: document.getElementById('save-set-form'),
+  setId: undefined,
 
   options: [],
   addOption(value) {

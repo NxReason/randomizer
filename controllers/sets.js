@@ -30,8 +30,23 @@ async function save(req, res) {
   }
 }
 
+async function update(req, res) {
+  const { id } = req.params;
+  const { name } = req.body;
+  try {
+    const queryResult = await Set.update(id, { name });
+    console.log(queryResult);
+
+    res.json({ ok: true, set: queryResult.rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ ok: false, msg: `Can't update set with id: ${id}` });
+  }
+}
+
 module.exports = {
   all,
   remove,
   save,
+  update,
 };

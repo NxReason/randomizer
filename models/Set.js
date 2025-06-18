@@ -22,10 +22,10 @@ async function save({ name }) {
   );
 }
 
-async function rename(id, newName) {
+async function update(id, { name }) {
   return await client.query(
-    `UPDATE TABLE ${TABLE} SET name=${newName} WHERE id = ${id}`
+    `UPDATE ${TABLE} SET name='${name}' WHERE id = ${id} RETURNING *`
   );
 }
 
-module.exports = { find, remove, rename, save };
+module.exports = { find, remove, update, save };

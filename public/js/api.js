@@ -33,4 +33,23 @@ const API = {
       return null;
     }
   },
+  async updateSet(id, fields) {
+    try {
+      const res = await fetch(`/api/sets/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(fields),
+      });
+      if (!res.ok) {
+        console.error(`Can't update set, res status: ${res.status}`);
+        return null;
+      }
+      return await res.json();
+    } catch (err) {
+      console.error(`Can't remove set, error: ${err}`);
+      return null;
+    }
+  },
 };
