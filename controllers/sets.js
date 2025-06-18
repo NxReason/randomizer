@@ -1,4 +1,5 @@
 const Set = require('../models/Set');
+const Option = require('../models/Option');
 
 async function all(req, res) {
   try {
@@ -20,10 +21,12 @@ async function remove(req, res) {
 }
 
 async function save(req, res) {
-  const { name } = req.body;
+  const { name, options } = req.body;
   try {
-    const queryResult = await Set.save({ name });
-    res.json({ ok: true, set: queryResult.rows[0] });
+    const setQueryResult = await Set.save({ name });
+    const set = setQueryResult.rows[0];
+    const optionsQueryResult = await Option.saveSetOptions(options, set.id);
+    res.json({ ok: true, set, options: optionsQueryResult.rows });
   } catch (err) {
     console.error(err);
     res.status(500).json({ ok: false, msg: `Can't save new set` });

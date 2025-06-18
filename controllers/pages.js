@@ -1,4 +1,5 @@
 const Set = require('../models/Set');
+const Option = require('../models/Option');
 
 async function index(req, res) {
   let set = null;
@@ -7,6 +8,8 @@ async function index(req, res) {
     if (req.query.set) {
       dbSet = await Set.find(req.query.set);
       set = dbSet.rows[0];
+      dbOptions = await Option.findSetOptions(req.query.set);
+      set.options = dbOptions.rows;
     }
   } catch (err) {
     console.error(`Error trying to get set: ${err}`);

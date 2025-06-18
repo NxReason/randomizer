@@ -24,7 +24,13 @@
             <button>Save</button>
           </form>
         </div>
-        <ul class="options-list" id="options-list"></ul>
+        <ul class="options-list" id="options-list">
+          <% if (set) { %> <% set.options.forEach(opt => { %>
+          <li class="options-list-item">
+            <%= opt.name %> <span class="remove-option-icon">x</span>
+          </li>
+          <% }); %> <% } %>
+        </ul>
         <form class="options-menu" id="options-menu">
           <input
             type="text"

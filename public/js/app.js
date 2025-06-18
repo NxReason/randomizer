@@ -2,8 +2,6 @@ const optionsList = {
   init() {
     this.setId = document.querySelector('.options')?.dataset['setId'];
 
-    console.log(this.setId);
-
     this.showFormBtn.addEventListener('click', () => {
       this.toggleTitle();
     });
@@ -16,7 +14,7 @@ const optionsList = {
       if (this.setId) {
         res = await API.updateSet(this.setId, { name });
       } else {
-        res = await API.saveSet({ name });
+        res = await API.saveSet({ name, options: this.getOptionNames() });
       }
       if (res?.set) {
         this.setId = res.set.id;
