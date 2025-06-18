@@ -14,14 +14,24 @@
 
       <main class="page-content">
         <h3 class="section-header">Sets</h3>
-        <ul class="set-list">
+        <ul class="set-list" id="sets-list">
           <% sets.forEach(s => { %>
-          <li class="set-list-item" data-id="<%= s.id %>">
-            <a href="/?set=<%= s.id %>" class="set-link"><%= s.name %></a>
+          <li
+            class="set-list-item"
+            data-id="<%= s.id %>"
+            data-name="<%= s.name %>"
+          >
+            <a href="/?set=<%= s.id %>" class="set-link"> <%= s.name %> </a>
+            <p class="set-list-item-controls">
+              <i class="icon icon-remove"></i>
+            </p>
           </li>
           <% }) %>
         </ul>
       </main>
     </div>
+
+    <script src="js/API.js"></script>
+    <script src="js/sets.js"></script>
   </body>
 </html>

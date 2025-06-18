@@ -9,7 +9,10 @@
   width: 500px;
 }
 .set-list-item {
+  display: flex;
+  align-items: stretch;
   background-color: #222;
+
   pointer-events: none;
 }
 .set-list-item:hover {
@@ -23,4 +26,22 @@
   width: 100%;
   height: 100%;
   padding: 0.6rem;
+}
+
+.set-list-item-controls {
+  display: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.set-list-item:hover .set-list-item-controls {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: all;
+}
+
+.set-list-item-controls:hover {
+  background-color: rgb(219, 18, 18);
+  cursor: pointer;
 }

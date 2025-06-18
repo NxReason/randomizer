@@ -62,3 +62,15 @@ a {
   display: inline-block;
   padding: 0.25rem;
 }
+
+/* COMPONENTS */
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+}
+.icon-remove {
+  background-image: url('/icons/bin.svg');
+}
