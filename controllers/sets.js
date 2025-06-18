@@ -19,7 +19,19 @@ async function remove(req, res) {
   }
 }
 
+async function save(req, res) {
+  const { name } = req.body;
+  try {
+    const queryResult = await Set.save({ name });
+    res.json({ ok: true, set: queryResult.rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ ok: false, msg: `Can't save new set` });
+  }
+}
+
 module.exports = {
   all,
   remove,
+  save,
 };

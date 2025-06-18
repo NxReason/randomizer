@@ -10,7 +10,21 @@
 }
 .options-header {
   grid-area: header;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
+.icon-save {
+  transform: transform 0.2s ease-in-out;
+}
+.icon-save:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.save-set-form {
+  display: none;
+}
+/* LIST */
 .options-list {
   grid-area: list;
   list-style: none;

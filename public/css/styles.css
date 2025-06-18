@@ -74,3 +74,6 @@ a {
 .icon-remove {
   background-image: url('/icons/bin.svg');
 }
+.icon-save {
+  background-image: url('/icons/save.svg');
+}

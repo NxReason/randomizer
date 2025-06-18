@@ -1,5 +1,23 @@
 const optionsList = {
+  init() {
+    this.showFormBtn.addEventListener('click', () => {
+      this.toggleTitle();
+    });
+    this.form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const nameInput = document.getElementById('new-set-name');
+      const res = await API.saveSet({ name: nameInput.value });
+      if (res?.set) {
+        this.renameSet(res.set.name);
+      }
+      this.toggleTitle();
+    });
+  },
+
   root: document.getElementById('options-list'),
+  title: document.getElementById('options-title'),
+  showFormBtn: document.getElementById('save-btn'),
+  form: document.getElementById('save-set-form'),
 
   options: [],
   addOption(value) {
@@ -25,7 +43,20 @@ const optionsList = {
   getOptionNames() {
     return this.options.map(o => o.value);
   },
+
+  titleVisible: true,
+  toggleTitle() {
+    this.form.style.display = this.titleVisible ? 'block' : 'none';
+    this.title.style.display = this.titleVisible ? 'none' : 'block';
+    this.showFormBtn.style.display = this.titleVisible ? 'none' : 'block';
+    this.titleVisible = !this.titleVisible;
+  },
+
+  renameSet(newName) {
+    this.title.textContent = newName;
+  },
 };
+optionsList.init();
 
 const optionsMenu = {
   init() {

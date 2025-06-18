@@ -1,4 +1,0 @@
-const CREATE_TABLE_Q = `CREATE TABLE options (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(256) NOT NULL
-);`;

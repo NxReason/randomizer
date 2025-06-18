@@ -11,9 +11,19 @@
   <body>
     <div id="app">
       <%- include('_partials/header') %>
-
       <section class="options">
-        <h3 class="options-header">Options</h3>
+        <div class="options-header">
+          <!-- DEFAULT CONTENT -->
+          <h3 class="options-title" id="options-title">
+            <% if (set) { %> <%= set.name %> <% } else { %> Options <% } %>
+          </h3>
+          <i class="icon icon-save" id="save-btn"></i>
+          <!-- SAVE SET FORM -->
+          <form id="save-set-form" class="save-set-form">
+            <input type="text" id="new-set-name" value="<%= set?.name %>" />
+            <button>Save</button>
+          </form>
+        </div>
         <ul class="options-list" id="options-list"></ul>
         <form class="options-menu" id="options-menu">
           <input
@@ -37,6 +47,7 @@
       </section>
     </div>
 
+    <script src="js/api.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
