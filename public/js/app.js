@@ -3,11 +3,27 @@ const optionsList = {
 
   options: [],
   addOption(value) {
-    this.options = [...this.options, value];
+    const id = window.crypto.randomUUID();
+    this.options = [...this.options, { id, value }];
 
     const $li = document.createElement('li');
+    $li.classList.add('options-list-item');
     $li.textContent = value;
+
+    const $removeIcon = document.createElement('span');
+    $removeIcon.textContent = 'x';
+    $removeIcon.classList.add('remove-option-icon');
+    $li.appendChild($removeIcon);
+
     this.root.appendChild($li);
+
+    $removeIcon.addEventListener('click', () => {
+      this.root.removeChild($li);
+      this.options = this.options.filter(o => o.id !== id);
+    });
+  },
+  getOptionNames() {
+    return this.options.map(o => o.value);
   },
 };
 
@@ -39,7 +55,7 @@ const picker = {
   result: document.getElementById('picker-result'),
 
   generateWinner() {
-    const { options } = optionsList;
+    const options = optionsList.getOptionNames();
     const winIndex = Math.floor(Math.random() * options.length);
     const winValue = options[winIndex];
     this.result.textContent = winValue;

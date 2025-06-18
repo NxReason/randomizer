@@ -72,6 +72,34 @@ button:hover {
   scrollbar-width: thin;
   scrollbar-color: #111 #444;
 }
+.options-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.options-list-item:hover {
+  font-weight: bold;
+}
+.options-list-item:hover .remove-option-icon {
+  display: inline;
+}
+.remove-option-icon {
+  display: none;
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--font-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.remove-option-icon:hover {
+  font-weight: bold;
+  border-width: 2px;
+  line-height: 0.7rem;
+}
+
 .options-menu {
   grid-area: menu;
   display: flex;
