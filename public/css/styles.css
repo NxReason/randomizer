@@ -39,113 +39,26 @@ button:hover {
   box-shadow: 2px 2px 4px #555;
   cursor: pointer;
 }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-/* COMPONENTS */
-
-.app-title {
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
   margin-bottom: 1rem;
 }
-
-/* OPTIONS */
-.options {
-  display: grid;
-  grid-template-rows: 2rem 1fr;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    'header header'
-    'list menu';
-  gap: 0.5rem 2rem;
-}
-.options-header {
-  grid-area: header;
-}
-.options-list {
-  grid-area: list;
-  list-style: none;
-  background-color: #222;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  height: 300px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #111 #444;
-}
-.options-list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.options-list-item:hover {
-  font-weight: bold;
-}
-.options-list-item:hover .remove-option-icon {
-  display: inline;
-}
-.remove-option-icon {
-  display: none;
-  font-size: 0.75rem;
-  text-align: center;
-  line-height: 0.75rem;
-  width: 1rem;
-  height: 1rem;
-  border: 1px solid var(--font-color);
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-.remove-option-icon:hover {
-  font-weight: bold;
-  border-width: 2px;
-  line-height: 0.7rem;
-}
-
-.options-menu {
-  grid-area: menu;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 1rem;
-
-  .options-name-input {
-    width: 100%;
-    padding: 0.2rem 0;
-  }
-}
-
-/* PICKER */
-.picker {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-.picker-run-btn {
-  width: 100px;
-}
-.picker-result {
-  font-size: 1.5rem;
-  line-height: 3rem;
-  font-weight: bold;
-  width: auto;
-  background-color: rgb(6, 70, 209);
-  border-radius: 1.5rem;
-  padding: 0 2rem;
-}
-
-/* HISTORY */
-.history {
-  margin-top: 1rem;
-}
-.history-list {
-  margin-top: 1rem;
-  max-height: 300px;
-  overflow: auto;
+.pages-list {
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  scrollbar-width: thin;
-  scrollbar-color: #111 #444;
+  gap: 1rem;
+}
+.pages-list a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: inline-block;
+  padding: 0.25rem;
 }

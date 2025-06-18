@@ -1,9 +1,9 @@
 const router = require('express').Router();
+const pagesCtr = require('../controllers/pages');
 const api = require('./api');
 
-router.get('/', (req, res) => {
-  res.render('index');
-});
+router.get('/', pagesCtr.index);
+router.get('/sets', pagesCtr.sets);
 
 router.use('/api', api);
 

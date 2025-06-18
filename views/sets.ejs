@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Randomizer</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/sets.css" />
+  </head>
+  <body>
+    <div id="app">
+      <%- include('_partials/header') %>
+
+      <main class="page-content">
+        <h3 class="section-header">Sets</h3>
+        <ul class="set-list">
+          <% sets.forEach(s => { %>
+          <li class="set-list-item" data-id="<%= s.id %>">
+            <a href="/?set=<%= s.id %>" class="set-link"><%= s.name %></a>
+          </li>
+          <% }) %>
+        </ul>
+      </main>
+    </div>
+  </body>
+</html>

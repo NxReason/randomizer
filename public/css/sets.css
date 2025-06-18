@@ -1,0 +1,26 @@
+.section-header {
+  margin-bottom: 0.5rem;
+}
+.set-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 500px;
+}
+.set-list-item {
+  background-color: #222;
+  pointer-events: none;
+}
+.set-list-item:hover {
+  box-shadow: 2px 2px 4px #555;
+}
+.set-list-item .set-link {
+  pointer-events: auto;
+}
+.set-link {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem;
+}
