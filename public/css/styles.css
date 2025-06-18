@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font: 16px 'Host Grotesk', 'system-ui', sans-serif;
+  background-color: #333;
+  --font-color: #fff;
+  color: var(--font-color);
+}
+
+#app {
+  padding: 16px;
+}
+
+input[type='text'] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #eee;
+  color: var(--font-color);
+  font: inherit;
+}
+input[type='text']:focus {
+  outline: none;
+  border-bottom-color: #fff;
+}
+button {
+  font: inherit;
+  background-color: #222;
+  padding: 0.5rem;
+  color: var(--font-color);
+  border: none;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+button:hover {
+  background-color: #111;
+  box-shadow: 2px 2px 4px #555;
+  cursor: pointer;
+}
+
+/* COMPONENTS */
+
+.app-title {
+  margin-bottom: 1rem;
+}
+
+/* OPTIONS */
+.options {
+  display: grid;
+  grid-template-rows: 2rem 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'header header'
+    'list menu';
+  gap: 0.5rem 2rem;
+}
+.options-header {
+  grid-area: header;
+}
+.options-list {
+  grid-area: list;
+  list-style: none;
+  background-color: #222;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #111 #444;
+}
+.options-menu {
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+
+  .options-name-input {
+    width: 100%;
+    padding: 0.2rem 0;
+  }
+}
+
+/* PICKER */
+.picker {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+.picker-run-btn {
+  width: 100px;
+}
+.picker-result {
+  font-size: 1.5rem;
+  line-height: 3rem;
+  font-weight: bold;
+  width: auto;
+  background-color: rgb(6, 70, 209);
+  border-radius: 1.5rem;
+  padding: 0 2rem;
+}
